@@ -630,6 +630,29 @@ function Projects() {
 
         <FeaturedProject project={featured} />
 
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+          className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+        >
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> System Architecture
+              </div>
+              <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                JK Hospital — end-to-end flow.
+              </h3>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground">
+              Multi-role dashboards, a secure API layer, Supabase + PostgreSQL, and Razorpay payments — wired together as one cohesive system.
+            </p>
+          </div>
+          <Architecture />
+        </motion.div>
+
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {others.map((p, i) => (
             <ProjectCard key={p.name} project={p} index={i} />
