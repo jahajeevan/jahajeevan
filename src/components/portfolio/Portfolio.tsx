@@ -1226,6 +1226,8 @@ function Footer() {
 export function Portfolio() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      <IntroLoader />
+      <Cursor />
       <Nav />
       <main>
         <Hero />
@@ -1233,6 +1235,7 @@ export function Portfolio() {
         <Skills />
         <Projects />
         <Achievements />
+        <Workflow />
         <Experience />
         <Contact />
       </main>
