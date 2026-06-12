@@ -50,11 +50,27 @@ const stagger: Variants = {
 /* ──────────────────────────────────────────────────────────── NAV */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("about");
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  useEffect(() => {
+    const ids = ["about", "skills", "projects", "experience", "contact"];
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   const links = [
@@ -92,15 +108,28 @@ function Nav() {
             scrolled ? "glass-strong" : "glass"
           }`}
         >
-          {links.map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              className="rounded-full px-3 py-1.5 text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
-            >
-              {label}
-            </a>
-          ))}
+          {links.map(([label, href]) => {
+            const id = href.replace("#", "");
+            const isActive = active === id;
+            return (
+              <a
+                key={href}
+                href={href}
+                className={`relative rounded-full px-3 py-1.5 transition-colors ${
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active"
+                    className="absolute inset-0 -z-10 rounded-full bg-foreground/10"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {label}
+              </a>
+            );
+          })}
         </nav>
 
         <a
