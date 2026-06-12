@@ -26,6 +26,12 @@ import {
   Quote,
   Activity,
 } from "lucide-react";
+import { HeroScene } from "./HeroScene";
+import { SkillsOrbit } from "./SkillsOrbit";
+import { Architecture } from "./Architecture";
+import { IntroLoader } from "./IntroLoader";
+import { Cursor } from "./Cursor";
+import { TiltCard } from "./TiltCard";
 
 const EMAIL = "jahajeevanv@gmail.com";
 const GITHUB = "https://github.com/jahajeevan";
@@ -44,11 +50,27 @@ const stagger: Variants = {
 /* ──────────────────────────────────────────────────────────── NAV */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("about");
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  useEffect(() => {
+    const ids = ["about", "skills", "projects", "experience", "contact"];
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   const links = [
@@ -86,15 +108,28 @@ function Nav() {
             scrolled ? "glass-strong" : "glass"
           }`}
         >
-          {links.map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              className="rounded-full px-3 py-1.5 text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
-            >
-              {label}
-            </a>
-          ))}
+          {links.map(([label, href]) => {
+            const id = href.replace("#", "");
+            const isActive = active === id;
+            return (
+              <a
+                key={href}
+                href={href}
+                className={`relative rounded-full px-3 py-1.5 transition-colors ${
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active"
+                    className="absolute inset-0 -z-10 rounded-full bg-foreground/10"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {label}
+              </a>
+            );
+          })}
         </nav>
 
         <a
@@ -143,7 +178,8 @@ function Hero() {
       </motion.div>
 
       <div className="mx-auto w-full max-w-6xl px-5">
-        <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-4xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-2xl">
           <motion.div
             variants={fadeUp}
             className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs text-muted-foreground"
@@ -205,12 +241,24 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Code card */}
+          {/* 3D Workspace */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            className="relative hidden h-[460px] w-full lg:block"
+          >
+            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-[oklch(0.93_0.05_75_/_0.4)] to-[oklch(0.90_0.05_180_/_0.3)] blur-2xl" />
+            <HeroScene />
+          </motion.div>
+        </div>
+
+        {/* Code card (smaller screens) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="mt-16 hidden md:block"
+          className="mt-16 hidden md:block lg:hidden"
         >
           <HeroCodeCard />
         </motion.div>
@@ -449,12 +497,13 @@ function Skills() {
           title="The stack I ship with."
           description="Carefully chosen tools across the full stack — from pixel-perfect UI to resilient APIs and cloud infrastructure."
         />
+        <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_1fr]">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-4 sm:grid-cols-2"
         >
           {skillGroups.map((g) => {
             const Icon = g.icon;
@@ -486,6 +535,17 @@ function Skills() {
             );
           })}
         </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative hidden h-[480px] w-full lg:block"
+            aria-hidden
+          >
+            <SkillsOrbit />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -570,6 +630,29 @@ function Projects() {
 
         <FeaturedProject project={featured} />
 
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+          className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+        >
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> System Architecture
+              </div>
+              <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                JK Hospital — end-to-end flow.
+              </h3>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground">
+              Multi-role dashboards, a secure API layer, Supabase + PostgreSQL, and Razorpay payments — wired together as one cohesive system.
+            </p>
+          </div>
+          <Architecture />
+        </motion.div>
+
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {others.map((p, i) => (
             <ProjectCard key={p.name} project={p} index={i} />
@@ -652,13 +735,13 @@ function FeaturedProject({ project }: { project: Project }) {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
+    <TiltCard className="h-full">
     <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -6 }}
-      className="group relative flex flex-col overflow-hidden rounded-2xl glass-strong"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass-strong"
     >
       <div className="relative h-44 overflow-hidden border-b border-white/5">
         <ProjectMockup accent={project.accent} compact />
@@ -695,6 +778,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
       </div>
     </motion.article>
+    </TiltCard>
   );
 }
 
@@ -738,10 +822,10 @@ function ProjectMockup({ accent, compact = false }: { accent: Project["accent"];
 
 /* ──────────────────────────────────────────────────────────── ACHIEVEMENTS */
 const stats = [
-  { value: 8, suffix: "+", label: "Full Stack Apps Built" },
-  { value: 30, suffix: "+", label: "APIs Developed" },
-  { value: 12, suffix: "+", label: "Dashboard Systems" },
-  { value: 5, suffix: "+", label: "Real-World Projects" },
+  { value: 3, suffix: "+", label: "Production Projects" },
+  { value: 5, suffix: "+", label: "Role-Based Dashboards" },
+  { value: 20, suffix: "+", label: "APIs Developed" },
+  { value: 10, suffix: "+", label: "Technologies Used" },
 ];
 
 function useCountUp(target: number, inView: boolean, duration = 1400) {
@@ -796,9 +880,9 @@ function Achievements() {
     <section className="relative py-32">
       <div className="mx-auto max-w-6xl px-5">
         <SectionTitle
-          eyebrow="By the numbers"
+          eyebrow="Engineering Highlights"
           title="Output, measured."
-          description="A snapshot of what I've shipped while learning, experimenting, and building in public."
+          description="A snapshot of systems shipped end-to-end — schemas, APIs, dashboards, and deploys."
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
@@ -975,6 +1059,53 @@ function Experience() {
 }
 
 /* ──────────────────────────────────────────────────────────── CONTACT */
+const workflow = [
+  { step: "01", title: "Problem", body: "Frame the real user need and constraints before writing a single line." },
+  { step: "02", title: "Design", body: "Wireframe flows, typographic hierarchy, and component primitives." },
+  { step: "03", title: "Architecture", body: "Data model, API surface, auth boundaries, and deployment topology." },
+  { step: "04", title: "Development", body: "TypeScript-first, small focused PRs, reusable hooks and primitives." },
+  { step: "05", title: "Testing", body: "Type safety, edge-case coverage, and real-device QA before shipping." },
+  { step: "06", title: "Deployment", body: "Containerized services, automated builds, observability from day one." },
+];
+
+function Workflow() {
+  return (
+    <section className="relative py-32">
+      <div className="mx-auto max-w-6xl px-5">
+        <SectionTitle
+          eyebrow="Process"
+          title="How I build products."
+          description="A disciplined loop from problem to production — designed to ship reliable software, not demos."
+        />
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {workflow.map((w) => (
+            <motion.div
+              key={w.step}
+              variants={fadeUp}
+              whileHover={{ y: -4 }}
+              className="group relative overflow-hidden rounded-2xl glass-strong p-6"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs text-muted-foreground">{w.step}</span>
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+              </div>
+              <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">{w.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.body}</p>
+              <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <section id="contact" className="relative py-32">
@@ -1095,6 +1226,8 @@ function Footer() {
 export function Portfolio() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      <IntroLoader />
+      <Cursor />
       <Nav />
       <main>
         <Hero />
@@ -1102,6 +1235,7 @@ export function Portfolio() {
         <Skills />
         <Projects />
         <Achievements />
+        <Workflow />
         <Experience />
         <Contact />
       </main>
