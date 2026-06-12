@@ -735,13 +735,13 @@ function FeaturedProject({ project }: { project: Project }) {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
+    <TiltCard className="h-full">
     <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -6 }}
-      className="group relative flex flex-col overflow-hidden rounded-2xl glass-strong"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass-strong"
     >
       <div className="relative h-44 overflow-hidden border-b border-white/5">
         <ProjectMockup accent={project.accent} compact />
@@ -778,6 +778,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
       </div>
     </motion.article>
+    </TiltCard>
   );
 }
 
