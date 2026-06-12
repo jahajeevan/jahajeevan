@@ -132,13 +132,13 @@ function Hero() {
           aria-hidden
           animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-1/2 top-1/3 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,oklch(0.82_0.16_210_/_0.35),transparent)]"
+          className="absolute left-1/2 top-1/3 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,oklch(0.88_0.07_75_/_0.55),transparent)]"
         />
         <motion.div
           aria-hidden
           animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.7, 0.4] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-0 top-10 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(closest-side,oklch(0.72_0.18_295_/_0.35),transparent)]"
+          className="absolute right-0 top-10 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(closest-side,oklch(0.86_0.06_180_/_0.45),transparent)]"
         />
       </motion.div>
 
