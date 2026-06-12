@@ -26,6 +26,12 @@ import {
   Quote,
   Activity,
 } from "lucide-react";
+import { HeroScene } from "./HeroScene";
+import { SkillsOrbit } from "./SkillsOrbit";
+import { Architecture } from "./Architecture";
+import { IntroLoader } from "./IntroLoader";
+import { Cursor } from "./Cursor";
+import { TiltCard } from "./TiltCard";
 
 const EMAIL = "jahajeevanv@gmail.com";
 const GITHUB = "https://github.com/jahajeevan";
