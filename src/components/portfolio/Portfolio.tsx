@@ -822,10 +822,10 @@ function ProjectMockup({ accent, compact = false }: { accent: Project["accent"];
 
 /* ──────────────────────────────────────────────────────────── ACHIEVEMENTS */
 const stats = [
-  { value: 8, suffix: "+", label: "Full Stack Apps Built" },
-  { value: 30, suffix: "+", label: "APIs Developed" },
-  { value: 12, suffix: "+", label: "Dashboard Systems" },
-  { value: 5, suffix: "+", label: "Real-World Projects" },
+  { value: 3, suffix: "+", label: "Production Projects" },
+  { value: 5, suffix: "+", label: "Role-Based Dashboards" },
+  { value: 20, suffix: "+", label: "APIs Developed" },
+  { value: 10, suffix: "+", label: "Technologies Used" },
 ];
 
 function useCountUp(target: number, inView: boolean, duration = 1400) {
@@ -880,9 +880,9 @@ function Achievements() {
     <section className="relative py-32">
       <div className="mx-auto max-w-6xl px-5">
         <SectionTitle
-          eyebrow="By the numbers"
+          eyebrow="Engineering Highlights"
           title="Output, measured."
-          description="A snapshot of what I've shipped while learning, experimenting, and building in public."
+          description="A snapshot of systems shipped end-to-end — schemas, APIs, dashboards, and deploys."
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
