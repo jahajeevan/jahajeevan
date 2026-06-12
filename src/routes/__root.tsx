@@ -80,10 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Jahajeevan — Full Stack Developer & Software Engineer" },
       { name: "description", content: "Portfolio of Jahajeevan V — Full Stack Developer specializing in React, Node.js, PostgreSQL, and scalable cloud applications." },
       { name: "author", content: "Jahajeevan V" },
-      { property: "og:title", content: "Jahajeevan — Full Stack Developer" },
-      { property: "og:description", content: "Building scalable, production-grade full stack systems." },
+      { property: "og:title", content: "Jahajeevan — Full Stack Developer & Software Engineer" },
+      { property: "og:description", content: "Portfolio of Jahajeevan V — Full Stack Developer specializing in React, Node.js, PostgreSQL, and scalable cloud applications." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Jahajeevan — Full Stack Developer & Software Engineer" },
+      { name: "twitter:description", content: "Portfolio of Jahajeevan V — Full Stack Developer specializing in React, Node.js, PostgreSQL, and scalable cloud applications." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e8567b7a-7226-4d30-9df3-22aae452a33a/id-preview-2a7826c9--ae73b48c-2cfd-4794-abbe-bfbe840cfdf4.lovable.app-1781258686209.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e8567b7a-7226-4d30-9df3-22aae452a33a/id-preview-2a7826c9--ae73b48c-2cfd-4794-abbe-bfbe840cfdf4.lovable.app-1781258686209.png" },
     ],
     links: [
       {
