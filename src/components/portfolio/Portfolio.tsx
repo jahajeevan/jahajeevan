@@ -497,12 +497,13 @@ function Skills() {
           title="The stack I ship with."
           description="Carefully chosen tools across the full stack — from pixel-perfect UI to resilient APIs and cloud infrastructure."
         />
+        <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_1fr]">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-4 sm:grid-cols-2"
         >
           {skillGroups.map((g) => {
             const Icon = g.icon;
@@ -534,6 +535,17 @@ function Skills() {
             );
           })}
         </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative hidden h-[480px] w-full lg:block"
+            aria-hidden
+          >
+            <SkillsOrbit />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
