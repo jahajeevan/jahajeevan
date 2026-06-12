@@ -178,7 +178,8 @@ function Hero() {
       </motion.div>
 
       <div className="mx-auto w-full max-w-6xl px-5">
-        <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-4xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-2xl">
           <motion.div
             variants={fadeUp}
             className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs text-muted-foreground"
@@ -240,12 +241,24 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Code card */}
+          {/* 3D Workspace */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            className="relative hidden h-[460px] w-full lg:block"
+          >
+            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-[oklch(0.93_0.05_75_/_0.4)] to-[oklch(0.90_0.05_180_/_0.3)] blur-2xl" />
+            <HeroScene />
+          </motion.div>
+        </div>
+
+        {/* Code card (smaller screens) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="mt-16 hidden md:block"
+          className="mt-16 hidden md:block lg:hidden"
         >
           <HeroCodeCard />
         </motion.div>
