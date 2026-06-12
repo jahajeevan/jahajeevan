@@ -1059,6 +1059,53 @@ function Experience() {
 }
 
 /* ──────────────────────────────────────────────────────────── CONTACT */
+const workflow = [
+  { step: "01", title: "Problem", body: "Frame the real user need and constraints before writing a single line." },
+  { step: "02", title: "Design", body: "Wireframe flows, typographic hierarchy, and component primitives." },
+  { step: "03", title: "Architecture", body: "Data model, API surface, auth boundaries, and deployment topology." },
+  { step: "04", title: "Development", body: "TypeScript-first, small focused PRs, reusable hooks and primitives." },
+  { step: "05", title: "Testing", body: "Type safety, edge-case coverage, and real-device QA before shipping." },
+  { step: "06", title: "Deployment", body: "Containerized services, automated builds, observability from day one." },
+];
+
+function Workflow() {
+  return (
+    <section className="relative py-32">
+      <div className="mx-auto max-w-6xl px-5">
+        <SectionTitle
+          eyebrow="Process"
+          title="How I build products."
+          description="A disciplined loop from problem to production — designed to ship reliable software, not demos."
+        />
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {workflow.map((w) => (
+            <motion.div
+              key={w.step}
+              variants={fadeUp}
+              whileHover={{ y: -4 }}
+              className="group relative overflow-hidden rounded-2xl glass-strong p-6"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs text-muted-foreground">{w.step}</span>
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+              </div>
+              <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">{w.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.body}</p>
+              <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <section id="contact" className="relative py-32">
