@@ -644,17 +644,27 @@ function Projects() {
           transition={{ duration: 0.7 }}
           className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
         >
+          <Dashboards />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+          className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+        >
           <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> System Architecture
+                <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Production Architecture
               </div>
               <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-                JK Hospital — end-to-end flow.
+                JK Hospital — live data flow.
               </h3>
             </div>
             <p className="max-w-md text-sm text-muted-foreground">
-              Multi-role dashboards, a secure API layer, Supabase + PostgreSQL, and Razorpay payments — wired together as one cohesive system.
+              Five role-based dashboards flow through a Node.js API and JWT auth into Supabase, Razorpay, Docker, and Vercel — wired as one production system.
             </p>
           </div>
           <Architecture />
@@ -1125,8 +1135,8 @@ function Contact() {
           className="relative overflow-hidden rounded-3xl glass-strong p-10 sm:p-16"
         >
           <div className="pointer-events-none absolute inset-0 -z-10 opacity-60">
-            <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-[radial-gradient(closest-side,oklch(0.82_0.16_210_/_0.35),transparent)]" />
-            <div className="absolute -bottom-20 -right-20 h-80 w-80 rounded-full bg-[radial-gradient(closest-side,oklch(0.72_0.18_295_/_0.35),transparent)]" />
+            <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-[radial-gradient(closest-side,oklch(0.86_0.07_75_/_0.55),transparent)]" />
+            <div className="absolute -bottom-20 -right-20 h-80 w-80 rounded-full bg-[radial-gradient(closest-side,oklch(0.85_0.06_155_/_0.45),transparent)]" />
           </div>
 
           <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -1135,11 +1145,11 @@ function Contact() {
                 <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Get in touch
               </div>
               <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-                Let's build something <span className="text-gradient">exceptional</span>.
+                Let's build something <span className="text-gradient">exceptional.</span>
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
-                I'm open to internships, freelance, and collaboration on ambitious products.
-                Reach out — I reply within 24 hours.
+                Open to internships, freelance opportunities, collaborations, and ambitious
+                software projects. I reply within 24 hours.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
