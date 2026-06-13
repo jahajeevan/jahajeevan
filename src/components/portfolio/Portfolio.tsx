@@ -829,10 +829,10 @@ function ProjectMockup({ accent, compact = false }: { accent: Project["accent"];
 
 /* ──────────────────────────────────────────────────────────── ACHIEVEMENTS */
 const stats = [
-  { value: 3, suffix: "+", label: "Production Projects" },
-  { value: 5, suffix: "+", label: "Role-Based Dashboards" },
+  { value: 10000, suffix: "+", label: "Lines of Code" },
   { value: 20, suffix: "+", label: "APIs Developed" },
-  { value: 10, suffix: "+", label: "Technologies Used" },
+  { value: 5, suffix: "", label: "Role-Based Dashboards" },
+  { value: 1, suffix: "", label: "Production Hospital Platform" },
 ];
 
 function useCountUp(target: number, inView: boolean, duration = 1400) {
@@ -874,7 +874,7 @@ function StatCard({ value, suffix, label, index }: { value: number; suffix: stri
       className="glass rounded-2xl p-7 text-center"
     >
       <div className="font-display text-5xl font-semibold tracking-tight text-gradient">
-        {n}
+        {n.toLocaleString()}
         {suffix}
       </div>
       <div className="mt-2 text-sm text-muted-foreground">{label}</div>
@@ -940,7 +940,7 @@ function ContributionGraph() {
                 key={r}
                 className="h-3 w-3 rounded-[3px]"
                 style={{
-                  background: `oklch(0.82 0.16 210 / ${opacities[level]})`,
+                  background: `oklch(0.62 0.08 145 / ${opacities[level]})`,
                 }}
               />
             );
