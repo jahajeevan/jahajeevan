@@ -29,6 +29,7 @@ import {
 import { HeroScene } from "./HeroScene";
 import { SkillsOrbit } from "./SkillsOrbit";
 import { Architecture } from "./Architecture";
+import { Dashboards } from "./Dashboards";
 import { IntroLoader } from "./IntroLoader";
 import { Cursor } from "./Cursor";
 import { TiltCard } from "./TiltCard";
@@ -195,20 +196,20 @@ function Hero() {
             variants={fadeUp}
             className="mt-6 text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]"
           >
-            Hi, I'm <span className="text-gradient">Jahajeevan</span>.
+            I build <span className="text-gradient">software</span>
             <br />
-            <span className="text-foreground/90">I build production</span>
+            <span className="text-foreground/90">that real people</span>
             <br />
-            <span className="text-foreground/90">grade software.</span>
+            <span className="text-foreground/90">use.</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            Full Stack Developer & Software Engineer focused on scalable web platforms,
-            cloud-native systems, and AI-powered tooling. I ship end-to-end products with
-            React, Node.js, PostgreSQL, and modern infrastructure.
+            I'm <span className="text-foreground">Jahajeevan</span> — a Full Stack Engineer turning
+            ideas into production systems. React, Node.js, PostgreSQL, Docker, and
+            cloud-native infrastructure, shipped end-to-end.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-9 flex flex-wrap items-center gap-3">
@@ -342,28 +343,34 @@ function SectionTitle({ eyebrow, title, description }: { eyebrow: string; title:
 /* ──────────────────────────────────────────────────────────── ABOUT */
 const timeline = [
   {
-    year: "2022",
+    year: "2025",
     title: "Started B.Tech, Computer Science",
-    body: "Began exploring software fundamentals, data structures, and the web platform.",
+    body: "Began the engineering journey — fundamentals, data structures, and the web platform.",
     icon: GraduationCap,
   },
   {
-    year: "2023",
+    year: "2026",
     title: "Frontend Engineering",
     body: "Deep work on React, component architecture, animation systems, and accessible UI.",
     icon: Code2,
   },
   {
-    year: "2024",
+    year: "2026",
     title: "Full Stack & Cloud",
-    body: "Built REST APIs with Node.js + Express, PostgreSQL schemas, JWT auth, Docker workflows.",
+    body: "Built REST APIs with Node.js + Express, PostgreSQL schemas, JWT auth, Docker workflows, and cloud deployment pipelines.",
     icon: Server,
   },
   {
-    year: "2025",
+    year: "2026",
     title: "Shipping Production Systems",
-    body: "Designed and launched JK Hospital Management System with multi-role dashboards and payments.",
+    body: "Designed and launched JK Hospital Management System — multi-role dashboards, secure auth, payments, token management, and pharmacy operations.",
     icon: Rocket,
+  },
+  {
+    year: "Present",
+    title: "AI, Cloud & System Design",
+    body: "Exploring AI engineering, cloud infrastructure, system design, and production architecture.",
+    icon: Cpu,
   },
 ];
 
