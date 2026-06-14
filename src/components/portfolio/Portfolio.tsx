@@ -4,7 +4,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  Download,
   ArrowUpRight,
   ExternalLink,
   Code2,
@@ -25,11 +24,13 @@ import {
   ChevronRight,
   Quote,
   Activity,
+  MessageCircle,
 } from "lucide-react";
 import { HeroScene } from "./HeroScene";
 import { SkillsOrbit } from "./SkillsOrbit";
 import { Architecture } from "./Architecture";
 import { Dashboards } from "./Dashboards";
+import { NexusPlatformOverview, NexusWorkflow, NexusArchitecture, NexusFeatures } from "./NexusShowcase";
 import { IntroLoader } from "./IntroLoader";
 import { Cursor } from "./Cursor";
 import { TiltCard } from "./TiltCard";
@@ -37,6 +38,8 @@ import { TiltCard } from "./TiltCard";
 const EMAIL = "jahajeevanv@gmail.com";
 const GITHUB = "https://github.com/jahajeevan";
 const LINKEDIN = "https://www.linkedin.com/in/jahajeevan-v-99774a379";
+const WHATSAPP_NUMBER = "+91 78452 65507";
+const WHATSAPP_URL = "https://wa.me/917845265507";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -221,10 +224,12 @@ function Hero() {
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
             <a
-              href="/resume.pdf"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full glass-strong px-5 py-3 text-sm font-medium transition-colors hover:bg-white/10"
             >
-              <Download className="h-4 w-4" /> Download Resume
+              <MessageCircle className="h-4 w-4" /> WhatsApp Me
             </a>
             <a
               href="#contact"
