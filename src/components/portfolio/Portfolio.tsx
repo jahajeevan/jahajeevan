@@ -4,7 +4,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  Download,
   ArrowUpRight,
   ExternalLink,
   Code2,
@@ -25,11 +24,13 @@ import {
   ChevronRight,
   Quote,
   Activity,
+  MessageCircle,
 } from "lucide-react";
 import { HeroScene } from "./HeroScene";
 import { SkillsOrbit } from "./SkillsOrbit";
 import { Architecture } from "./Architecture";
 import { Dashboards } from "./Dashboards";
+import { NexusPlatformOverview, NexusWorkflow, NexusArchitecture, NexusFeatures } from "./NexusShowcase";
 import { IntroLoader } from "./IntroLoader";
 import { Cursor } from "./Cursor";
 import { TiltCard } from "./TiltCard";
@@ -37,6 +38,8 @@ import { TiltCard } from "./TiltCard";
 const EMAIL = "jahajeevanv@gmail.com";
 const GITHUB = "https://github.com/jahajeevan";
 const LINKEDIN = "https://www.linkedin.com/in/jahajeevan-v-99774a379";
+const WHATSAPP_NUMBER = "+91 78452 65507";
+const WHATSAPP_URL = "https://wa.me/917845265507";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -221,10 +224,12 @@ function Hero() {
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
             <a
-              href="/resume.pdf"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full glass-strong px-5 py-3 text-sm font-medium transition-colors hover:bg-white/10"
             >
-              <Download className="h-4 w-4" /> Download Resume
+              <MessageCircle className="h-4 w-4" /> WhatsApp Me
             </a>
             <a
               href="#contact"
@@ -617,7 +622,7 @@ const accentMap = {
 
 function Projects() {
   const featured = projects.find((p) => p.featured)!;
-  const others = projects.filter((p) => !p.featured);
+  const nexus = projects.find((p) => p.name.startsWith("Amrita"))!;
   return (
     <section id="projects" className="relative py-32">
       <div className="mx-auto max-w-6xl px-5">
@@ -662,13 +667,98 @@ function Projects() {
           <Architecture />
         </motion.div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {others.map((p, i) => (
-            <ProjectCard key={p.name} project={p} index={i} />
-          ))}
-        </div>
+        <NexusFlagship project={nexus} />
       </div>
     </section>
+  );
+}
+
+function NexusFlagship({ project }: { project: Project }) {
+  return (
+    <div className="mt-24">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+      >
+        <FeaturedProject project={project} />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+      >
+        <NexusPlatformOverview />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+      >
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Campus Workflow
+            </div>
+            <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              Student to analytics — in six steps.
+            </h3>
+          </div>
+          <p className="max-w-md text-sm text-muted-foreground">
+            From event registration to QR check-in and live attendance — every action streams into the admin analytics layer.
+          </p>
+        </div>
+        <NexusWorkflow />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+      >
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Production Architecture
+            </div>
+            <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              Amrita Nexus — system topology.
+            </h3>
+          </div>
+          <p className="max-w-md text-sm text-muted-foreground">
+            React clients call a Node.js + Express API guarded by JWT &amp; RBAC, feeding Supabase &amp; PostgreSQL — surfaced through a unified admin dashboard.
+          </p>
+        </div>
+        <NexusArchitecture />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+      >
+        <div className="mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Feature Showcase
+          </div>
+          <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            Built for real campus operations.
+          </h3>
+        </div>
+        <NexusFeatures />
+      </motion.div>
+    </div>
   );
 }
 
@@ -838,11 +928,11 @@ function ProjectMockup({ accent, compact = false }: { accent: Project["accent"];
 
 /* ──────────────────────────────────────────────────────────── ACHIEVEMENTS */
 const stats = [
-  { value: 10000, suffix: "+", label: "Lines of Code" },
-  { value: 20, suffix: "+", label: "APIs Developed" },
+  { value: 2, suffix: "", label: "Production Platforms" },
   { value: 5, suffix: "", label: "Role-Based Dashboards" },
-  { value: 1, suffix: "", label: "Production Hospital Platform" },
-  { value: 3, suffix: "+", label: "Full-Stack Deployments" },
+  { value: 20, suffix: "+", label: "APIs Developed" },
+  { value: 2, suffix: "", label: "Live Deployments" },
+  { value: 100, suffix: "%", label: "Self Built" },
 ];
 
 function useCountUp(target: number, inView: boolean, duration = 1400) {
@@ -1159,10 +1249,12 @@ function Contact() {
                   <Mail className="h-4 w-4" /> Send Email
                 </a>
                 <a
-                  href="/resume.pdf"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium transition-colors hover:bg-white/10"
                 >
-                  <Download className="h-4 w-4" /> Resume
+                  <MessageCircle className="h-4 w-4" /> WhatsApp Me
                 </a>
               </div>
             </div>
@@ -1171,7 +1263,7 @@ function Contact() {
               <ContactRow icon={Mail} label="Email" value={EMAIL} href={`mailto:${EMAIL}`} />
               <ContactRow icon={Linkedin} label="LinkedIn" value="jahajeevan-v" href={LINKEDIN} />
               <ContactRow icon={Github} label="GitHub" value="jahajeevan" href={GITHUB} />
-              <ContactRow icon={Download} label="Resume" value="Download PDF" href="/resume.pdf" />
+              <ContactRow icon={MessageCircle} label="WhatsApp" value={WHATSAPP_NUMBER} href={WHATSAPP_URL} />
             </div>
           </div>
         </motion.div>
