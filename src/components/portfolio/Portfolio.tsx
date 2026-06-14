@@ -843,11 +843,11 @@ function ProjectMockup({ accent, compact = false }: { accent: Project["accent"];
 
 /* ──────────────────────────────────────────────────────────── ACHIEVEMENTS */
 const stats = [
-  { value: 10000, suffix: "+", label: "Lines of Code" },
-  { value: 20, suffix: "+", label: "APIs Developed" },
+  { value: 2, suffix: "", label: "Production Platforms" },
   { value: 5, suffix: "", label: "Role-Based Dashboards" },
-  { value: 1, suffix: "", label: "Production Hospital Platform" },
-  { value: 3, suffix: "+", label: "Full-Stack Deployments" },
+  { value: 20, suffix: "+", label: "APIs Developed" },
+  { value: 2, suffix: "", label: "Live Deployments" },
+  { value: 100, suffix: "%", label: "Self Built" },
 ];
 
 function useCountUp(target: number, inView: boolean, duration = 1400) {
