@@ -1164,10 +1164,12 @@ function Contact() {
                   <Mail className="h-4 w-4" /> Send Email
                 </a>
                 <a
-                  href="/resume.pdf"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium transition-colors hover:bg-white/10"
                 >
-                  <Download className="h-4 w-4" /> Resume
+                  <MessageCircle className="h-4 w-4" /> WhatsApp Me
                 </a>
               </div>
             </div>
@@ -1176,7 +1178,7 @@ function Contact() {
               <ContactRow icon={Mail} label="Email" value={EMAIL} href={`mailto:${EMAIL}`} />
               <ContactRow icon={Linkedin} label="LinkedIn" value="jahajeevan-v" href={LINKEDIN} />
               <ContactRow icon={Github} label="GitHub" value="jahajeevan" href={GITHUB} />
-              <ContactRow icon={Download} label="Resume" value="Download PDF" href="/resume.pdf" />
+              <ContactRow icon={MessageCircle} label="WhatsApp" value={WHATSAPP_NUMBER} href={WHATSAPP_URL} />
             </div>
           </div>
         </motion.div>
