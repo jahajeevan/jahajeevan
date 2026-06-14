@@ -622,7 +622,7 @@ const accentMap = {
 
 function Projects() {
   const featured = projects.find((p) => p.featured)!;
-  const others = projects.filter((p) => !p.featured);
+  const nexus = projects.find((p) => p.name.startsWith("Amrita"))!;
   return (
     <section id="projects" className="relative py-32">
       <div className="mx-auto max-w-6xl px-5">
@@ -667,13 +667,98 @@ function Projects() {
           <Architecture />
         </motion.div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {others.map((p, i) => (
-            <ProjectCard key={p.name} project={p} index={i} />
-          ))}
-        </div>
+        <NexusFlagship project={nexus} />
       </div>
     </section>
+  );
+}
+
+function NexusFlagship({ project }: { project: Project }) {
+  return (
+    <div className="mt-24">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+      >
+        <FeaturedProject project={project} />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+      >
+        <NexusPlatformOverview />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+      >
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Campus Workflow
+            </div>
+            <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              Student to analytics — in six steps.
+            </h3>
+          </div>
+          <p className="max-w-md text-sm text-muted-foreground">
+            From event registration to QR check-in and live attendance — every action streams into the admin analytics layer.
+          </p>
+        </div>
+        <NexusWorkflow />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+      >
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Production Architecture
+            </div>
+            <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              Amrita Nexus — system topology.
+            </h3>
+          </div>
+          <p className="max-w-md text-sm text-muted-foreground">
+            React clients call a Node.js + Express API guarded by JWT &amp; RBAC, feeding Supabase &amp; PostgreSQL — surfaced through a unified admin dashboard.
+          </p>
+        </div>
+        <NexusArchitecture />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+      >
+        <div className="mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Feature Showcase
+          </div>
+          <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            Built for real campus operations.
+          </h3>
+        </div>
+        <NexusFeatures />
+      </motion.div>
+    </div>
   );
 }
 
