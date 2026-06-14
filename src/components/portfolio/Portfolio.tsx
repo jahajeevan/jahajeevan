@@ -351,25 +351,25 @@ const timeline = [
   {
     year: "2026",
     title: "Frontend Engineering",
-    body: "Deep work on React, component architecture, animation systems, and accessible UI.",
+    body: "Focused on React, UI systems, responsive design, component architecture, and animation systems.",
     icon: Code2,
   },
   {
     year: "2026",
     title: "Full Stack & Cloud",
-    body: "Built REST APIs with Node.js + Express, PostgreSQL schemas, JWT auth, Docker workflows, and cloud deployment pipelines.",
+    body: "Built REST APIs using Node.js and Express, designed PostgreSQL database structures, implemented JWT authentication, cloud deployment workflows, and Dockerized applications.",
     icon: Server,
   },
   {
     year: "2026",
-    title: "Shipping Production Systems",
-    body: "Designed and launched JK Hospital Management System — multi-role dashboards, secure auth, payments, token management, and pharmacy operations.",
+    title: "Built JK Hospital Management System",
+    body: "Designed and developed a complete hospital management platform with authentication, payments, multi-role dashboards, appointment booking, token management, pharmacy workflows, and administrative operations.",
     icon: Rocket,
   },
   {
     year: "Present",
-    title: "AI, Cloud & System Design",
-    body: "Exploring AI engineering, cloud infrastructure, system design, and production architecture.",
+    title: "AI Engineering & System Design",
+    body: "Exploring AI-powered systems, cloud infrastructure, scalable architectures, and production-grade software engineering.",
     icon: Cpu,
   },
 ];
@@ -588,32 +588,24 @@ const projects: Project[] = [
     stack: ["React", "Node.js", "Express.js", "Supabase", "PostgreSQL", "JWT", "Razorpay", "Tailwind CSS", "Docker", "Vercel", "Render"],
     accent: "cyan",
     featured: true,
-    repoUrl: GITHUB,
+    liveUrl: "https://www.jahajeevan.me",
+    repoUrl: "https://github.com/jahajeevan/jk-hospital",
   },
   {
     name: "Amrita Nexus — Campus Management",
     tagline: "Unified platform for campus operations",
     description:
-      "A campus management platform designed to streamline student, faculty, and campus operations under a single, modern interface.",
+      "A campus event and operations platform with student registration, QR-based access control, venue management, and an admin analytics dashboard.",
     features: [
-      "Student management",
-      "Faculty management",
-      "Announcements & event management",
-      "Campus services portal",
+      "Event management & scheduling",
+      "Student registration flow",
+      "QR-based venue access",
+      "Admin dashboard with analytics",
     ],
     stack: ["React", "Node.js", "Express.js", "Supabase", "PostgreSQL"],
     accent: "violet",
-    repoUrl: GITHUB,
-  },
-  {
-    name: "Restaurant Website",
-    tagline: "Modern responsive restaurant experience",
-    description:
-      "A modern restaurant platform with responsive design and a user-friendly customer experience.",
-    features: ["Menu showcase", "Fully responsive design", "Modern UI/UX", "Contact & reservation features"],
-    stack: ["React", "Tailwind CSS", "JavaScript"],
-    accent: "emerald",
-    repoUrl: GITHUB,
+    liveUrl: "https://amrita-nexus.onrender.com",
+    repoUrl: "https://github.com/jahajeevan/Amrita-Nexus",
   },
 ];
 
@@ -727,6 +719,8 @@ function FeaturedProject({ project }: { project: Project }) {
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
             <a
               href={project.liveUrl || "#"}
+              target={project.liveUrl ? "_blank" : undefined}
+              rel="noreferrer"
               className="group/btn inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-violet)] px-4 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
             >
               <ExternalLink className="h-4 w-4" /> Live Demo
@@ -787,10 +781,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4">
           <a href={project.repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground">
-            <Github className="h-3.5 w-3.5" /> Source
+            <Github className="h-3.5 w-3.5" /> View Code
           </a>
-          <a href={project.liveUrl || "#"} className="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent-cyan)] transition-colors hover:text-foreground">
-            View project <ArrowUpRight className="h-3.5 w-3.5" />
+          <a
+            href={project.liveUrl || "#"}
+            target={project.liveUrl ? "_blank" : undefined}
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent-cyan)] transition-colors hover:text-foreground"
+          >
+            Live Demo <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </div>
       </div>
@@ -843,6 +842,7 @@ const stats = [
   { value: 20, suffix: "+", label: "APIs Developed" },
   { value: 5, suffix: "", label: "Role-Based Dashboards" },
   { value: 1, suffix: "", label: "Production Hospital Platform" },
+  { value: 3, suffix: "+", label: "Full-Stack Deployments" },
 ];
 
 function useCountUp(target: number, inView: boolean, duration = 1400) {
@@ -901,7 +901,7 @@ function Achievements() {
           title="Output, measured."
           description="A snapshot of systems shipped end-to-end — schemas, APIs, dashboards, and deploys."
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {stats.map((s, i) => (
             <StatCard key={s.label} {...s} index={i} />
           ))}
@@ -966,7 +966,7 @@ const experience = [
   {
     role: "Lead Engineer (Self-led)",
     org: "JK Hospital Management System",
-    period: "2025 — Present",
+    period: "2026 — Present",
     bullets: [
       "Designed multi-role architecture spanning 5 dashboards (patient, doctor, receptionist, pharmacist, admin).",
       "Implemented JWT-based RBAC, Razorpay payment flows, and real-time token queue management.",
@@ -976,19 +976,19 @@ const experience = [
   {
     role: "Full Stack Developer",
     org: "Amrita Nexus Campus Platform",
-    period: "2024 — 2025",
+    period: "2026",
     bullets: [
-      "Built unified portal for student / faculty / events with React + Express + PostgreSQL.",
-      "Designed announcement and campus services modules with role-aware UI.",
+      "Built unified event and registration portal with React, Express, and PostgreSQL.",
+      "Designed QR-based venue access and an admin analytics dashboard.",
     ],
   },
   {
-    role: "Frontend Developer",
-    org: "Restaurant Website Project",
-    period: "2024",
+    role: "Frontend Engineer",
+    org: "React UI Systems & Component Architecture",
+    period: "2026",
     bullets: [
-      "Crafted responsive menu showcase, reservation, and contact flows.",
-      "Established reusable design system with Tailwind CSS.",
+      "Built responsive interfaces with React, Tailwind CSS, and Framer Motion.",
+      "Established reusable component primitives and design tokens.",
     ],
   },
 ];
