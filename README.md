@@ -12,33 +12,9 @@
 
 ## ⚡ What I build
 
-I build software at the intersection of **AI agents**, **native macOS experiences**, and **real-world products**. I’m drawn to projects where the hard part is not making a flashy demo—it is making the product useful, private, and safe to trust.
+I build software at the intersection of **AI agents**, **native macOS experiences**, and **real-world products**. I care most about the difficult parts: useful workflows, sensible permission boundaries, and software that earns trust beyond the demo.
 
-<p align="center">
-  <img src="./assets/product-constellation.svg" alt="Scout, JARVIS, and JK Hospital product constellation" width="100%" />
-</p>
-
-## 🧠 Flagship systems
-
-<table>
-  <tr>
-    <td width="33%" valign="top">
-      <h3 align="center"><a href="https://github.com/jahajeevan/Scout">Scout</a></h3>
-      <p align="center">Native macOS intelligence with wake word, voice, screen vision, RAG, persistent memory, and multi-agent orchestration.</p>
-      <p align="center"><code>permission-gated tools</code></p>
-    </td>
-    <td width="33%" valign="top">
-      <h3 align="center"><a href="https://github.com/jahajeevan/jarvis">J.A.R.V.I.S.</a></h3>
-      <p align="center">A local-first cinematic desktop assistant with offline speech, private memory, gestures, and opt-in actions.</p>
-      <p align="center"><code>local-first by default</code></p>
-    </td>
-    <td width="33%" valign="top">
-      <h3 align="center"><a href="https://github.com/jahajeevan/jk-hospital">JK Hospital</a></h3>
-      <p align="center">An operations platform for appointments, token queues, payments, invoices, refunds, and staff workflows.</p>
-      <p align="center"><code>built for real operations</code></p>
-    </td>
-  </tr>
-</table>
+**Flagship work:** [Scout](https://github.com/jahajeevan/Scout) · [J.A.R.V.I.S.](https://github.com/jahajeevan/jarvis) · [JK Hospital](https://github.com/jahajeevan/jk-hospital)
 
 <p align="center">
   <img src="./assets/systems-radar.svg" alt="Live flagship systems radar for Scout, JARVIS, and JK Hospital" width="100%" />
