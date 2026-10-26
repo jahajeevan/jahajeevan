@@ -1,21 +1,39 @@
-# Hi, I'm Jahajeevan 👋
+<p align="center">
+  <img src="./assets/product-constellation.svg" alt="Jahajeevan's product constellation: Scout, JARVIS, and JK Hospital" width="100%" />
+</p>
 
-I'm a full-stack developer who builds thoughtful, production-ready web applications—from polished user experiences to the systems behind them.
+# Hey, I’m Jahajeevan 👋
 
-## What I work with
+I’m a full-stack product engineer who turns ambitious ideas into working systems—especially where **AI, native experiences, privacy, and real-world workflows** meet.
 
-- **Frontend:** React, TypeScript, Tailwind CSS, and modern component systems
-- **Backend:** Node.js, REST APIs, authentication, and data-driven applications
-- **Product:** booking platforms, administrative workflows, and business websites
+I care about the details that make software trustworthy: a clear permission boundary, a fast and thoughtful interface, and a system that still makes sense after the demo is over.
 
-## Featured work
+## Flagship builds
 
-- [JK Hospital](https://github.com/jahajeevan/jk-hospital) — appointment, token queue, payment, invoice, and admin-management platform
-- [Simbells Wedding & Events](https://github.com/jahajeevan/simbells-wedding-events) — production wedding and events website
-- [JeevVPN](https://github.com/jahajeevan/JeevVPN) — Flutter-based Android VPN client
+| Project | What makes it interesting |
+| :-- | :-- |
+| [Scout](https://github.com/jahajeevan/Scout) | Native macOS intelligence with wake word, screen vision, RAG, voice streaming, persistent memory, multi-agent orchestration, and a three-tier permission gate. |
+| [J.A.R.V.I.S.](https://github.com/jahajeevan/jarvis) | A local-first macOS assistant combining a cinematic Three.js interface, offline voice pipeline, gestures, private memory, and opt-in computer actions. |
+| [JK Hospital](https://github.com/jahajeevan/jk-hospital) | A full-stack appointment, token-queue, payment, invoice, refund, and administration platform designed around real operations. |
 
-## Currently focused on
+## My build philosophy
 
-Building reliable, accessible web products with clean interfaces and practical workflows.
+```text
+intelligence without permission is not assistance
+beautiful interfaces still need useful workflows
+local-first is a product decision, not just a feature
+```
 
-Thanks for stopping by.
+## Working across the stack
+
+`TypeScript` · `React` · `Next.js` · `Node.js` · `Python` · `FastAPI` · `Three.js` · `macOS` · `SQLite` · `Supabase` · `MongoDB` · `Docker`
+
+## More selected work
+
+- [JeevVPN](https://github.com/jahajeevan/JeevVPN) — Flutter Android VPN client with release automation and in-app updates
+- [Simbells Wedding & Events](https://github.com/jahajeevan/simbells-wedding-events) — production event website with booking journeys and administration
+- [Hearth & Bloom Designs](https://github.com/jahajeevan/hearth-bloom-designs) — interior-design portfolio experience
+
+---
+
+<p align="center"><i>Build things that earn trust.</i></p>

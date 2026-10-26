@@ -1,0 +1,20 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Jahajeevan's product constellation</title>
+  <desc id="desc">Three connected products: Scout, JARVIS and JK Hospital.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#08111F"/><stop offset="1" stop-color="#121B32"/></linearGradient>
+    <linearGradient id="scout" x1="0" y1="0" x2="260" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#26D7C7"/><stop offset="1" stop-color="#2B78FF"/></linearGradient>
+    <linearGradient id="jarvis" x1="0" y1="0" x2="260" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#B980FF"/><stop offset="1" stop-color="#F45F9D"/></linearGradient>
+    <linearGradient id="hospital" x1="0" y1="0" x2="260" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB55B"/><stop offset="1" stop-color="#F76A6A"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="420" rx="24" fill="url(#bg)"/>
+  <g opacity=".13" stroke="#AFC8FF"><path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200"/><path d="M80 0V420M180 0V420M280 0V420M380 0V420M480 0V420M580 0V420M680 0V420M780 0V420M880 0V420M980 0V420M1080 0V420"/></g>
+  <text x="66" y="72" fill="#DDE8FF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="3">J A H A J E E V A N  /  P R O D U C T   C O N S T E L L A T I O N</text>
+  <text x="66" y="118" fill="white" font-family="ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="700">Systems with a point of view.</text>
+  <path d="M196 235C284 176 343 176 434 235C524 295 604 295 698 235C787 176 870 176 978 235" stroke="#5A78BC" stroke-width="2" stroke-dasharray="7 10" opacity=".7"/>
+  <circle cx="196" cy="235" r="11" fill="#26D7C7" filter="url(#glow)"/><circle cx="604" cy="265" r="11" fill="#B980FF" filter="url(#glow)"/><circle cx="978" cy="235" r="11" fill="#FFB55B" filter="url(#glow)"/>
+  <g transform="translate(66 285)"><rect width="310" height="92" rx="14" fill="#0F2230" stroke="#2BDFD0" stroke-opacity=".65"/><rect width="7" height="92" rx="3.5" fill="url(#scout)"/><text x="28" y="35" fill="#50F0DF" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">01 / SCOUT</text><text x="28" y="65" fill="white" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">Native intelligence, permission-gated</text></g>
+  <g transform="translate(445 285)"><rect width="310" height="92" rx="14" fill="#20192D" stroke="#C69CFF" stroke-opacity=".65"/><rect width="7" height="92" rx="3.5" fill="url(#jarvis)"/><text x="28" y="35" fill="#D4B5FF" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">02 / JARVIS</text><text x="28" y="65" fill="white" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">Local-first cinematic computing</text></g>
+  <g transform="translate(824 285)"><rect width="310" height="92" rx="14" fill="#2A1C23" stroke="#FFB25B" stroke-opacity=".65"/><rect width="7" height="92" rx="3.5" fill="url(#hospital)"/><text x="28" y="35" fill="#FFC179" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">03 / JK HOSPITAL</text><text x="28" y="65" fill="white" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">Real workflows, thoughtfully built</text></g>
+</svg>
