@@ -23,12 +23,12 @@ I build software at the intersection of **AI agents**, **native macOS experience
 ## ◉ JARVIS / live interface
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/jahajeevan/jarvis/main/docs/assets/demo/jarvis-live-demo.mp4">
+  <a href="https://jahajeevan.me/jarvis/">
     <img src="https://raw.githubusercontent.com/jahajeevan/jarvis/main/docs/assets/demo/jarvis-live-preview.gif" alt="Animated live preview of JARVIS, a local-first macOS assistant" width="100%" />
   </a>
 </p>
 
-<p align="center"><sub>Local-first macOS assistant · voice, private memory, real-time visual states · <a href="https://raw.githubusercontent.com/jahajeevan/jarvis/main/docs/assets/demo/jarvis-live-demo.mp4">watch the full demo ↗</a></sub></p>
+<p align="center"><sub>Local-first macOS assistant · voice, private memory, real-time visual states · <a href="https://jahajeevan.me/jarvis/">watch the full demo ↗</a></sub></p>
 
 ## 🛠️ Technology I use
 
