@@ -20,6 +20,16 @@ I build software at the intersection of **AI agents**, **native macOS experience
   <img src="./assets/systems-radar.svg" alt="Live flagship systems radar for Scout, JARVIS, and JK Hospital" width="100%" />
 </p>
 
+## ◉ JARVIS / live interface
+
+<p align="center">
+  <a href="https://github.com/jahajeevan/jarvis/blob/main/docs/assets/demo/jarvis-live-demo.mp4">
+    <img src="https://raw.githubusercontent.com/jahajeevan/jarvis/main/docs/assets/demo/jarvis-live-preview.gif" alt="Animated live preview of JARVIS, a local-first macOS assistant" width="100%" />
+  </a>
+</p>
+
+<p align="center"><sub>Local-first macOS assistant · voice, private memory, real-time visual states · <a href="https://github.com/jahajeevan/jarvis/blob/main/docs/assets/demo/jarvis-live-demo.mp4">watch the full demo ↗</a></sub></p>
+
 ## 🛠️ Technology I use
 
 <p align="center">
