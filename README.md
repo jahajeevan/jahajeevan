@@ -40,11 +40,17 @@ I build software at the intersection of **AI agents**, **native macOS experience
   </tr>
 </table>
 
+<p align="center">
+  <img src="./assets/systems-radar.svg" alt="Live flagship systems radar for Scout, JARVIS, and JK Hospital" width="100%" />
+</p>
+
 ## 🛠️ Technology I use
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,python,fastapi,threejs,flutter,dart,mongodb,supabase,sqlite,docker,git,github,figma&perline=9" alt="Technology stack" />
+  <img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,python,fastapi,threejs,flutter,dart,mongodb,supabase,sqlite,docker,git,github,figma,apple&perline=9" alt="Technology stack" />
 </p>
+
+<p align="center"><code>Ollama</code> · <code>NVIDIA NIM</code> · <code>Whisper</code> · <code>Vosk</code> · <code>Kokoro TTS</code> · <code>WebSocket streaming</code> · <code>GitHub Actions</code></p>
 
 ## 📊 GitHub signals
 

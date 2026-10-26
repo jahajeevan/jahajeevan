@@ -7,7 +7,10 @@ if (!token) throw new Error("GITHUB_TOKEN is required to generate profile teleme
 
 const query = `query($login: String!) {
   user(login: $login) {
-    repositories(first: 100, privacy: PUBLIC) { totalCount }
+    repositories(first: 100, privacy: PUBLIC) {
+      totalCount
+      nodes { name pushedAt stargazerCount primaryLanguage { name } }
+    }
     followers { totalCount }
     contributionsCollection {
       contributionCalendar {
@@ -50,3 +53,22 @@ const svg = `<svg width="1200" height="250" viewBox="0 0 1200 250" fill="none" x
 
 await mkdir("assets", { recursive: true });
 await writeFile("assets/activity-map.svg", svg);
+
+const projects = ["Scout", "jarvis", "jk-hospital"].map((name) => {
+  const repo = user.repositories.nodes.find((node) => node.name === name);
+  if (!repo) throw new Error(`Missing flagship repository: ${name}`);
+  return repo;
+});
+const label = { Scout: "SCOUT", jarvis: "J.A.R.V.I.S.", "jk-hospital": "JK HOSPITAL" };
+const color = { Scout: "#62F6D1", jarvis: "#B896FF", "jk-hospital": "#FFB25B" };
+const relative = (date) => {
+  const days = Math.max(0, Math.floor((Date.now() - new Date(date)) / 86400000));
+  return days === 0 ? "updated today" : days === 1 ? "updated yesterday" : `updated ${days}d ago`;
+};
+const cards = projects.map((repo, index) => {
+  const x = 42 + index * 383;
+  const accent = color[repo.name];
+  return `<g transform="translate(${x} 96)"><rect width="350" height="122" rx="14" fill="#101B2D" stroke="${accent}" stroke-opacity=".72"/><rect width="6" height="122" rx="3" fill="${accent}"/><text x="25" y="32" fill="${accent}" font-family="ui-monospace,Menlo,monospace" font-size="13" letter-spacing="1.5">0${index + 1} / ${label[repo.name]}</text><text x="25" y="62" fill="#FFFFFF" font-family="ui-sans-serif,system-ui,sans-serif" font-size="19" font-weight="700">${repo.primaryLanguage?.name ?? "Multi-language system"}</text><text x="25" y="88" fill="#9DB0CB" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14">${relative(repo.pushedAt)}  ·  ★ ${repo.stargazerCount}</text><circle cx="318" cy="26" r="5" fill="${accent}" filter="url(#glow)"/><text x="25" y="109" fill="#6F88A9" font-family="ui-monospace,Menlo,monospace" font-size="11">PUBLIC PROJECT / LIVE SIGNAL</text></g>`;
+}).join("");
+const radar = `<svg width="1200" height="250" viewBox="0 0 1200 250" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc"><title id="title">Flagship systems radar</title><desc id="desc">Live status radar for Scout, JARVIS, and JK Hospital based on public repository data.</desc><defs><linearGradient id="rbg" x1="0" y1="0" x2="1200" y2="250" gradientUnits="userSpaceOnUse"><stop stop-color="#120F24"/><stop offset="1" stop-color="#0D1B2E"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="1200" height="250" rx="18" fill="url(#rbg)"/><path d="M0 62H1200" stroke="#303251"/><text x="42" y="40" fill="#B6C5DA" font-family="ui-monospace,Menlo,monospace" font-size="14" letter-spacing="2">FLAGSHIP SYSTEMS RADAR / PUBLIC REPOSITORY SIGNALS</text><text x="42" y="74" fill="#FFFFFF" font-family="ui-sans-serif,system-ui,sans-serif" font-size="18" font-weight="700">Three systems. Three different ways of building trust.</text>${cards}</svg>`;
+await writeFile("assets/systems-radar.svg", radar);
