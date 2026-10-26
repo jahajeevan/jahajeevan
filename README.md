@@ -58,7 +58,7 @@ I build software at the intersection of **AI agents**, **native macOS experience
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=jahajeevan&bg_color=0D1117&color=C9D1D9&line=58A6FF&point=A371F7&area=true&hide_border=true" alt="Jahajeevan's contribution activity graph" width="100%" />
+  <img src="./assets/activity-map.svg" alt="Jahajeevan's live build telemetry and contribution field" width="100%" />
 </p>
 
 ## 🐍 Contribution trail
