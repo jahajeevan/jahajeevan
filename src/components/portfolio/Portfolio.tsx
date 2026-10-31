@@ -1,36 +1,24 @@
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Github,
   Linkedin,
   Mail,
   ArrowUpRight,
   ExternalLink,
-  Code2,
   Server,
   Database,
-  Cloud,
   Wrench,
-  ShieldCheck,
-  CreditCard,
   Sparkles,
-  Layers,
-  Cpu,
-  GitBranch,
+  BrainCircuit,
   Terminal,
   Briefcase,
   GraduationCap,
-  Rocket,
   ChevronRight,
-  Quote,
-  Activity,
   MessageCircle,
+  BadgeCheck,
 } from "lucide-react";
 import { HeroScene } from "./HeroScene";
-import { SkillsOrbit } from "./SkillsOrbit";
-import { Architecture } from "./Architecture";
-import { Dashboards } from "./Dashboards";
-import { NexusPlatformOverview, NexusWorkflow, NexusArchitecture, NexusFeatures } from "./NexusShowcase";
 import { IntroLoader } from "./IntroLoader";
 import { Cursor } from "./Cursor";
 import { TiltCard } from "./TiltCard";
@@ -201,17 +189,17 @@ function Hero() {
           >
             I build <span className="text-gradient">software</span>
             <br />
-            <span className="text-foreground/90">that real people</span>
+            <span className="text-foreground/90">and AI systems</span>
             <br />
-            <span className="text-foreground/90">use.</span>
+            <span className="text-foreground/90">people actually use.</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            I'm <span className="text-foreground">Jahajeevan</span> — a Full Stack Engineer turning
-            ideas into production systems. React, Node.js, PostgreSQL, Docker, and
+            I'm <span className="text-foreground">Jahajeevan</span> — a Full Stack Engineer building
+            production software and local-first AI systems. React, Node.js, Python, and
             cloud-native infrastructure, shipped end-to-end.
           </motion.p>
 
@@ -307,9 +295,9 @@ function HeroCodeCard() {
           {"\n"}  role: <span className="text-emerald-300">"Full Stack Developer"</span>,
           {"\n"}  stack: [<span className="text-emerald-300">"React"</span>,{" "}
           <span className="text-emerald-300">"Node.js"</span>,{" "}
-          <span className="text-emerald-300">"Postgres"</span>,{" "}
-          <span className="text-emerald-300">"Docker"</span>],
-          {"\n"}  focus: <span className="text-emerald-300">"scalable systems + AI"</span>,
+          <span className="text-emerald-300">"Python"</span>,{" "}
+          <span className="text-emerald-300">"MongoDB"</span>],
+          {"\n"}  focus: <span className="text-emerald-300">"production software + AI systems"</span>,
           {"\n"}  shipping: <span className="text-[var(--color-accent-cyan)]">true</span>,
           {"\n"}
           {"};"}
@@ -346,101 +334,65 @@ function SectionTitle({ eyebrow, title, description }: { eyebrow: string; title:
 }
 
 /* ──────────────────────────────────────────────────────────── ABOUT */
-const timeline = [
-  {
-    year: "2025",
-    title: "Started B.Tech, Computer Science",
-    body: "Began the engineering journey — fundamentals, data structures, and the web platform.",
-    icon: GraduationCap,
-  },
-  {
-    year: "2026",
-    title: "Frontend Engineering",
-    body: "Focused on React, UI systems, responsive design, component architecture, and animation systems.",
-    icon: Code2,
-  },
-  {
-    year: "2026",
-    title: "Full Stack & Cloud",
-    body: "Built REST APIs using Node.js and Express, designed PostgreSQL database structures, implemented JWT authentication, cloud deployment workflows, and Dockerized applications.",
-    icon: Server,
-  },
-  {
-    year: "2026",
-    title: "Built JK Hospital Management System",
-    body: "Designed and developed a complete hospital management platform with authentication, payments, multi-role dashboards, appointment booking, token management, pharmacy workflows, and administrative operations.",
-    icon: Rocket,
-  },
-  {
-    year: "Present",
-    title: "AI Engineering & System Design",
-    body: "Exploring AI-powered systems, cloud infrastructure, scalable architectures, and production-grade software engineering.",
-    icon: Cpu,
-  },
-];
-
 function About() {
   return (
-    <section id="about" className="relative py-32">
+    <section id="about" className="relative scroll-mt-24 py-32">
       <div className="mx-auto max-w-6xl px-5">
         <SectionTitle
           eyebrow="About"
           title="Engineer-first. Product-minded."
-          description="B.Tech Computer Science student building real, useful systems. I care about clean architecture, performance, and the small details that make software feel premium."
         />
 
-        <div className="grid gap-10 lg:grid-cols-5">
+        <div className="grid gap-6 lg:grid-cols-3">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="glass-strong rounded-2xl p-7 lg:col-span-2"
+            className="glass-strong rounded-2xl p-8 lg:col-span-2"
           >
             <p className="text-base leading-relaxed text-foreground/85">
-              I'm passionate about <span className="text-foreground">Full Stack Development</span>,
-              <span className="text-foreground"> Cloud Computing</span>, and
-              <span className="text-foreground"> AI</span> — and obsessed with building scalable,
-              user-facing applications that solve real-world problems.
+              I'm a <span className="text-foreground">B.Tech Computer Science</span> student who
+              builds real, deployed software — full-stack web platforms, local-first AI
+              assistants for macOS, and production websites for real clients. I care about clean
+              architecture, honest scope, and the small details that make software feel premium.
             </p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              From multi-role hospital platforms to campus operations systems, I've shipped
-              end-to-end products: schema design, secure auth, payments, dashboards, and deploys.
+              Every project here was designed, built, and shipped by me end-to-end: data models,
+              APIs, authentication, payments, deployment, and the interface people touch.
             </p>
             <div className="mt-7 grid grid-cols-2 gap-4 border-t border-white/5 pt-6">
-              <Fact label="Based in" value="India 🇮🇳" />
+              <Fact label="Based in" value="India" />
               <Fact label="Open to" value="Internships, Freelance" />
-              <Fact label="Focus" value="Full Stack + AI" />
+              <Fact label="Focus" value="Full Stack + AI systems" />
               <Fact label="Currently" value="B.Tech CSE" />
             </div>
           </motion.div>
 
-          <motion.ol
-            variants={stagger}
+          <motion.div
+            variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            className="relative space-y-6 lg:col-span-3"
+            viewport={{ once: true }}
+            className="glass rounded-2xl p-8"
           >
-            <div className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-[var(--color-accent-cyan)]/60 via-white/10 to-transparent" />
-            {timeline.map((t) => {
-              const Icon = t.icon;
-              return (
-                <motion.li key={t.year} variants={fadeUp} className="relative flex gap-5 pl-0">
-                  <div className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full glass-strong">
-                    <Icon className="h-4 w-4 text-[var(--color-accent-cyan)]" />
-                  </div>
-                  <div className="flex-1 rounded-xl glass p-5 transition-colors hover:bg-white/[0.06]">
-                    <div className="flex items-baseline justify-between gap-4">
-                      <h3 className="font-display text-lg font-semibold">{t.title}</h3>
-                      <span className="font-mono text-xs text-muted-foreground">{t.year}</span>
-                    </div>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.body}</p>
-                  </div>
-                </motion.li>
-              );
-            })}
-          </motion.ol>
+            <div className="flex items-center gap-3">
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[var(--color-accent-cyan)]/20 to-[var(--color-accent-violet)]/20">
+                <GraduationCap className="h-5 w-5 text-[var(--color-accent-cyan)]" />
+              </div>
+              <h3 className="font-display text-lg font-semibold">Education</h3>
+            </div>
+            <div className="mt-5">
+              <div className="font-display text-base font-semibold leading-snug">
+                B.Tech, Computer Science & Engineering
+              </div>
+              <div className="mt-1 font-mono text-xs text-muted-foreground">2025 — Present · India</div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Foundations in data structures, algorithms, databases, networks, and software
+                engineering — applied directly in the projects I ship.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -459,63 +411,54 @@ function Fact({ label, value }: { label: string; value: string }) {
 /* ──────────────────────────────────────────────────────────── SKILLS */
 const skillGroups = [
   {
-    icon: Layers,
-    title: "Frontend",
-    items: ["HTML5", "CSS3", "JavaScript", "React.js", "JSX", "Tailwind CSS", "Framer Motion", "React Router", "Axios"],
+    icon: Sparkles,
+    title: "Programming Languages",
+    items: ["JavaScript", "TypeScript", "Python", "Java", "Dart"],
+  },
+  {
+    icon: Terminal,
+    title: "Frontend Development",
+    items: ["React.js", "Next.js", "HTML5", "CSS3", "Tailwind CSS", "Framer Motion", "React Router", "Axios"],
   },
   {
     icon: Server,
-    title: "Backend",
-    items: ["Node.js", "Express.js", "REST APIs"],
+    title: "Backend Development",
+    items: ["Node.js", "Express.js", "FastAPI", "REST APIs", "JWT", "Nodemailer"],
   },
   {
     icon: Database,
-    title: "Database",
-    items: ["PostgreSQL", "Supabase"],
+    title: "Databases",
+    items: ["PostgreSQL", "MongoDB", "Supabase", "H2"],
   },
   {
-    icon: ShieldCheck,
-    title: "Authentication",
-    items: ["JWT", "Clerk"],
-  },
-  {
-    icon: CreditCard,
-    title: "Payments",
-    items: ["Razorpay"],
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & Deployment",
-    items: ["Vercel", "Render", "Docker"],
+    icon: BrainCircuit,
+    title: "AI & Intelligent Systems",
+    items: ["NVIDIA NIM", "Ollama", "Whisper", "Vosk", "Kokoro TTS", "RAG", "Multi-agent orchestration"],
   },
   {
     icon: Wrench,
-    title: "Tools",
-    items: ["Git", "GitHub", "VS Code", "Postman"],
-  },
-  {
-    icon: Cpu,
-    title: "Currently Learning",
-    items: ["System Design", "Kubernetes", "LLM Apps", "TypeScript"],
+    title: "Development Tools & Cloud",
+    items: ["Git", "GitHub", "GitHub Actions", "Docker", "Vercel", "Render", "VS Code", "Postman"],
   },
 ];
 
+const learning = ["System Design", "Kubernetes", "LLM application engineering"];
+
 function Skills() {
   return (
-    <section id="skills" className="relative py-32">
+    <section id="skills" className="relative scroll-mt-24 py-32">
       <div className="mx-auto max-w-6xl px-5">
         <SectionTitle
           eyebrow="Toolkit"
           title="The stack I ship with."
-          description="Carefully chosen tools across the full stack — from pixel-perfect UI to resilient APIs and cloud infrastructure."
+          description="Technologies I've used in shipped projects — organized by where they work, not how they look."
         />
-        <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_1fr]">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid gap-4 sm:grid-cols-2"
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {skillGroups.map((g) => {
             const Icon = g.icon;
@@ -524,7 +467,7 @@ function Skills() {
                 key={g.title}
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
-                className="group relative overflow-hidden rounded-2xl glass p-5 transition-all hover:bg-white/[0.05]"
+                className="group relative overflow-hidden rounded-2xl glass p-6 transition-all hover:bg-white/[0.05]"
               >
                 <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="flex items-center gap-3">
@@ -547,17 +490,26 @@ function Skills() {
             );
           })}
         </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative hidden h-[480px] w-full lg:block"
-            aria-hidden
-          >
-            <SkillsOrbit />
-          </motion.div>
-        </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="mt-6 flex flex-wrap items-center gap-3 rounded-2xl border border-dashed border-foreground/10 bg-white/30 p-5"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+            Currently learning
+          </span>
+          {learning.map((s) => (
+            <span
+              key={s}
+              className="rounded-md border border-dashed border-[var(--color-accent-violet)]/40 px-2 py-1 font-mono text-[11px] text-muted-foreground"
+            >
+              {s}
+            </span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
@@ -568,51 +520,11 @@ type Project = {
   name: string;
   tagline: string;
   description: string;
-  features: string[];
   stack: string[];
   liveUrl?: string;
-  repoUrl?: string;
+  repoUrl: string;
   accent: "cyan" | "violet" | "emerald";
-  featured?: boolean;
 };
-
-const projects: Project[] = [
-  {
-    name: "JK Hospital Management System",
-    tagline: "End-to-end hospital operations platform",
-    description:
-      "A full-stack hospital management platform with role-based access control, appointment booking, token management, online payments, prescription handling, pharmacy management, and operational dashboards.",
-    features: [
-      "Patient, Doctor, Receptionist, Pharmacist & Admin dashboards",
-      "Appointment booking with real-time token queue",
-      "Razorpay integration for secure online payments",
-      "JWT authentication with role-based access control",
-      "Prescription management & pharmacy billing",
-      "Analytics dashboard for operational insights",
-    ],
-    stack: ["React", "Node.js", "Express.js", "Supabase", "PostgreSQL", "JWT", "Razorpay", "Tailwind CSS", "Docker", "Vercel", "Render"],
-    accent: "cyan",
-    featured: true,
-    liveUrl: "https://www.jahajeevan.me",
-    repoUrl: "https://github.com/jahajeevan/jk-hospital",
-  },
-  {
-    name: "Amrita Nexus — Campus Management",
-    tagline: "Unified platform for campus operations",
-    description:
-      "A campus event and operations platform with student registration, QR-based access control, venue management, and an admin analytics dashboard.",
-    features: [
-      "Event management & scheduling",
-      "Student registration flow",
-      "QR-based venue access",
-      "Admin dashboard with analytics",
-    ],
-    stack: ["React", "Node.js", "Express.js", "Supabase", "PostgreSQL"],
-    accent: "violet",
-    liveUrl: "https://amrita-nexus.onrender.com",
-    repoUrl: "https://github.com/jahajeevan/Amrita-Nexus",
-  },
-];
 
 const accentMap = {
   cyan: "from-[var(--color-accent-cyan)] to-sky-400",
@@ -620,145 +532,142 @@ const accentMap = {
   emerald: "from-emerald-400 to-teal-400",
 };
 
+const featuredProjects: Project[] = [
+  {
+    name: "JK Hospital",
+    tagline: "Hospital appointment & token-management platform · Live",
+    description:
+      "A full-stack hospital platform for appointment booking, real-time token queues, online payments, invoices, refunds, and staff administration — with multi-role dashboards and JWT-secured access. Deployed and live.",
+    stack: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS", "Nodemailer"],
+    liveUrl: "https://jk-hospital-six.vercel.app",
+    repoUrl: "https://github.com/jahajeevan/jk-hospital",
+    accent: "cyan",
+  },
+  {
+    name: "Scout",
+    tagline: "Native macOS AI assistant",
+    description:
+      "Wake word, streaming voice, screen vision, and a multi-agent orchestrator with permission-gated tools, Code Mode, RAG, and persistent memory — built on NVIDIA NIM.",
+    stack: ["Python", "FastAPI", "Next.js", "TypeScript", "NVIDIA NIM", "RAG"],
+    repoUrl: "https://github.com/jahajeevan/Scout",
+    accent: "violet",
+  },
+  {
+    name: "J.A.R.V.I.S.",
+    tagline: "Local-first desktop assistant for macOS",
+    description:
+      "A cinematic, local-first assistant powered by Ollama and Qwen — offline speech recognition, gesture control, private memory, and a native shell. Nothing leaves the machine.",
+    stack: ["TypeScript", "React", "Three.js", "Ollama", "Computer Vision"],
+    repoUrl: "https://github.com/jahajeevan/jarvis",
+    accent: "emerald",
+  },
+  {
+    name: "Merkle Sentinel",
+    tagline: "Dataset integrity verification case study",
+    description:
+      "A local-first application for verifying dataset integrity with a Java SHA-256 Merkle tree — separating computed roots from signed trusted checkpoints, with a proof explorer, tamper detection, audit history, and benchmarks.",
+    stack: ["Java", "Spring Boot", "React", "TypeScript", "Docker", "PostgreSQL"],
+    repoUrl: "https://github.com/jahajeevan/merkle-sentinel",
+    accent: "violet",
+  },
+  {
+    name: "Campus Connect",
+    tagline: "Live canteen menus for Amrita Vishwa Vidyapeetham · Live",
+    description:
+      "A real-time canteen menu platform — staff manage their own menus from a dashboard and changes appear instantly on the public site, with a super-admin console and a zero-backend demo mode. Deployed and live.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "React Query", "Zod"],
+    liveUrl: "https://campus-connect-flax-eight.vercel.app",
+    repoUrl: "https://github.com/jahajeevan/Campus-Connect",
+    accent: "emerald",
+  },
+  {
+    name: "JeevVPN",
+    tagline: "Flutter Android VPN client",
+    description:
+      "A Flutter-based Android VPN client with automated release pipelines and in-app updates.",
+    stack: ["Flutter", "Dart", "Android", "GitHub Actions"],
+    repoUrl: "https://github.com/jahajeevan/JeevVPN",
+    accent: "cyan",
+  },
+];
+
+const otherProjects: Project[] = [
+  {
+    name: "Amrita Nexus",
+    tagline: "Campus event & operations platform",
+    description:
+      "Campus event registration, QR-based venue access control, and an admin analytics dashboard.",
+    stack: ["React", "Node.js", "Express.js", "PostgreSQL"],
+    repoUrl: "https://github.com/jahajeevan/Amrita-Nexus",
+    accent: "violet",
+  },
+  {
+    name: "Simbells Wedding & Events",
+    tagline: "Client project · Production website",
+    description:
+      "Production website for a wedding & events business, with booking journeys and administration.",
+    stack: ["React", "TypeScript", "Tailwind CSS"],
+    repoUrl: "https://github.com/jahajeevan/simbells-wedding-events",
+    accent: "emerald",
+  },
+  {
+    name: "Hearth & Bloom Designs",
+    tagline: "Client project · Services website",
+    description:
+      "Interior-design portfolio and services website with an editorial, conversion-focused layout.",
+    stack: ["React", "TypeScript", "Tailwind CSS"],
+    repoUrl: "https://github.com/jahajeevan/hearth-bloom-designs",
+    accent: "cyan",
+  },
+];
+
 function Projects() {
-  const featured = projects.find((p) => p.featured)!;
-  const nexus = projects.find((p) => p.name.startsWith("Amrita"))!;
+  const [flagship, ...rest] = featuredProjects;
   return (
-    <section id="projects" className="relative py-32">
+    <section id="projects" className="relative scroll-mt-24 py-32">
       <div className="mx-auto max-w-6xl px-5">
         <SectionTitle
           eyebrow="Selected Work"
           title="Projects that ship value."
-          description="Real systems with real users in mind — designed, built, and deployed end-to-end."
+          description="Real systems — designed, built, and deployed end-to-end. Descriptions come straight from the repositories; live links only where a deployment is verified."
         />
 
-        <FeaturedProject project={featured} />
+        {/* Flagship */}
+        <FeaturedProject project={flagship} />
 
+        {/* Grid of remaining featured projects */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-          className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+          className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
-          <Dashboards />
+          {rest.map((p, i) => (
+            <ProjectCard key={p.name} project={p} index={i} />
+          ))}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-          className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
-        >
-          <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Production Architecture
-              </div>
-              <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-                JK Hospital — live data flow.
-              </h3>
-            </div>
-            <p className="max-w-md text-sm text-muted-foreground">
-              Five role-based dashboards flow through a Node.js API and JWT auth into Supabase, Razorpay, Docker, and Vercel — wired as one production system.
-            </p>
-          </div>
-          <Architecture />
-        </motion.div>
-
-        <NexusFlagship project={nexus} />
+        {/* Other projects */}
+        <div className="mt-24">
+          <SectionTitle
+            eyebrow="Also shipped"
+            title="Other projects & client work."
+          />
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid gap-6 md:grid-cols-3"
+          >
+            {otherProjects.map((p, i) => (
+              <CompactProjectCard key={p.name} project={p} index={i} />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
-  );
-}
-
-function NexusFlagship({ project }: { project: Project }) {
-  return (
-    <div className="mt-24">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7 }}
-      >
-        <FeaturedProject project={project} />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7 }}
-        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
-      >
-        <NexusPlatformOverview />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7 }}
-        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
-      >
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-              <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Campus Workflow
-            </div>
-            <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-              Student to analytics — in six steps.
-            </h3>
-          </div>
-          <p className="max-w-md text-sm text-muted-foreground">
-            From event registration to QR check-in and live attendance — every action streams into the admin analytics layer.
-          </p>
-        </div>
-        <NexusWorkflow />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7 }}
-        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
-      >
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-              <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Production Architecture
-            </div>
-            <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-              Amrita Nexus — system topology.
-            </h3>
-          </div>
-          <p className="max-w-md text-sm text-muted-foreground">
-            React clients call a Node.js + Express API guarded by JWT &amp; RBAC, feeding Supabase &amp; PostgreSQL — surfaced through a unified admin dashboard.
-          </p>
-        </div>
-        <NexusArchitecture />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7 }}
-        className="mt-12 rounded-3xl glass-strong p-6 sm:p-10"
-      >
-        <div className="mb-6">
-          <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-            <span className="h-1 w-1 rounded-full bg-[var(--color-accent-cyan)]" /> Feature Showcase
-          </div>
-          <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-            Built for real campus operations.
-          </h3>
-        </div>
-        <NexusFeatures />
-      </motion.div>
-    </div>
   );
 }
 
@@ -774,7 +683,7 @@ function FeaturedProject({ project }: { project: Project }) {
       <div className="grid lg:grid-cols-2">
         <div className="relative order-2 p-8 lg:order-1 lg:p-12">
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--color-accent-cyan)]/20 to-[var(--color-accent-violet)]/20 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent-cyan)]">
-            <Sparkles className="h-3 w-3" /> Featured
+            <Sparkles className="h-3 w-3" /> Flagship project
           </motion.div>
           <motion.h3 variants={fadeUp} className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
             {project.name}
@@ -785,15 +694,6 @@ function FeaturedProject({ project }: { project: Project }) {
           <motion.p variants={fadeUp} className="mt-5 text-base leading-relaxed text-foreground/85">
             {project.description}
           </motion.p>
-
-          <motion.ul variants={stagger} className="mt-6 grid gap-2 sm:grid-cols-2">
-            {project.features.map((f) => (
-              <motion.li key={f} variants={fadeUp} className="flex items-start gap-2 text-sm text-muted-foreground">
-                <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent-cyan)]" />
-                {f}
-              </motion.li>
-            ))}
-          </motion.ul>
 
           <motion.div variants={fadeUp} className="mt-7 flex flex-wrap gap-1.5">
             {project.stack.map((s) => (
@@ -807,14 +707,16 @@ function FeaturedProject({ project }: { project: Project }) {
           </motion.div>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={project.liveUrl || "#"}
-              target={project.liveUrl ? "_blank" : undefined}
-              rel="noreferrer"
-              className="group/btn inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-violet)] px-4 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
-            >
-              <ExternalLink className="h-4 w-4" /> Live Demo
-            </a>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group/btn inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-violet)] px-4 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              >
+                <ExternalLink className="h-4 w-4" /> Live Demo
+              </a>
+            )}
             <a
               href={project.repoUrl}
               target="_blank"
@@ -837,54 +739,79 @@ function FeaturedProject({ project }: { project: Project }) {
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <TiltCard className="h-full">
+      <motion.article
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, delay: index * 0.08 }}
+        className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass-strong"
+      >
+        <div className="relative h-40 overflow-hidden border-b border-white/5">
+          <ProjectMockup accent={project.accent} compact />
+        </div>
+        <div className="flex flex-1 flex-col p-6">
+          <h3 className="font-display text-xl font-semibold tracking-tight">{project.name}</h3>
+          <p className="mt-1 text-xs text-muted-foreground">{project.tagline}</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+
+          <div className="mt-5 flex flex-wrap gap-1.5">
+            {project.stack.map((s) => (
+              <span key={s} className="rounded-md border border-white/5 bg-white/[0.03] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                {s}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-4">
+            <a href={project.repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground">
+              <Github className="h-3.5 w-3.5" /> View Code
+            </a>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent-cyan)] transition-colors hover:text-foreground"
+              >
+                Live Demo <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            )}
+          </div>
+        </div>
+      </motion.article>
+    </TiltCard>
+  );
+}
+
+function CompactProjectCard({ project, index }: { project: Project; index: number }) {
+  return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass-strong"
+      transition={{ duration: 0.55, delay: index * 0.08 }}
+      className="group flex h-full flex-col rounded-2xl glass p-6 transition-colors hover:bg-white/[0.05]"
     >
-      <div className="relative h-44 overflow-hidden border-b border-white/5">
-        <ProjectMockup accent={project.accent} compact />
+      <h3 className="font-display text-lg font-semibold tracking-tight">{project.name}</h3>
+      <p className="mt-1 text-xs text-muted-foreground">{project.tagline}</p>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        {project.stack.map((s) => (
+          <span key={s} className="rounded-md border border-white/5 bg-white/[0.03] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+            {s}
+          </span>
+        ))}
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-xl font-semibold tracking-tight">{project.name}</h3>
-        <p className="mt-1 text-xs text-muted-foreground">{project.tagline}</p>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-
-        <ul className="mt-4 space-y-1.5">
-          {project.features.slice(0, 3).map((f) => (
-            <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
-              <ChevronRight className="mt-0.5 h-3 w-3 shrink-0 text-[var(--color-accent-cyan)]" />
-              {f}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-5 flex flex-wrap gap-1.5">
-          {project.stack.map((s) => (
-            <span key={s} className="rounded-md border border-white/5 bg-white/[0.03] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-              {s}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4">
-          <a href={project.repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground">
-            <Github className="h-3.5 w-3.5" /> View Code
-          </a>
-          <a
-            href={project.liveUrl || "#"}
-            target={project.liveUrl ? "_blank" : undefined}
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent-cyan)] transition-colors hover:text-foreground"
-          >
-            Live Demo <ArrowUpRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
-      </div>
+      <a
+        href={project.repoUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-5 inline-flex items-center gap-1.5 border-t border-white/5 pt-4 text-xs text-muted-foreground transition-colors hover:text-foreground"
+      >
+        <Github className="h-3.5 w-3.5" /> View Code
+        <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      </a>
     </motion.article>
-    </TiltCard>
   );
 }
 
@@ -926,190 +853,50 @@ function ProjectMockup({ accent, compact = false }: { accent: Project["accent"];
   );
 }
 
-/* ──────────────────────────────────────────────────────────── ACHIEVEMENTS */
-const stats = [
-  { value: 2, suffix: "", label: "Production Platforms" },
-  { value: 5, suffix: "", label: "Role-Based Dashboards" },
-  { value: 20, suffix: "+", label: "APIs Developed" },
-  { value: 2, suffix: "", label: "Live Deployments" },
-  { value: 100, suffix: "%", label: "Self Built" },
-];
-
-function useCountUp(target: number, inView: boolean, duration = 1400) {
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    let raf = 0;
-    const start = performance.now();
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setN(Math.round(target * eased));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [target, inView, duration]);
-  return n;
-}
-
-function StatCard({ value, suffix, label, index }: { value: number; suffix: string; label: string; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && setInView(true), { threshold: 0.4 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  const n = useCountUp(value, inView);
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.08, duration: 0.6 }}
-      className="glass rounded-2xl p-7 text-center"
-    >
-      <div className="font-display text-5xl font-semibold tracking-tight text-gradient">
-        {n.toLocaleString()}
-        {suffix}
-      </div>
-      <div className="mt-2 text-sm text-muted-foreground">{label}</div>
-    </motion.div>
-  );
-}
-
-function Achievements() {
-  return (
-    <section className="relative py-32">
-      <div className="mx-auto max-w-6xl px-5">
-        <SectionTitle
-          eyebrow="Engineering Highlights"
-          title="Output, measured."
-          description="A snapshot of systems shipped end-to-end — schemas, APIs, dashboards, and deploys."
-        />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {stats.map((s, i) => (
-            <StatCard key={s.label} {...s} index={i} />
-          ))}
-        </div>
-
-        {/* Contribution placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-10 overflow-hidden rounded-2xl glass-strong p-7"
-        >
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                <Activity className="h-3.5 w-3.5" /> GitHub Activity
-              </div>
-              <h3 className="mt-2 font-display text-xl font-semibold">Consistent, every week.</h3>
-            </div>
-            <a href={GITHUB} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent-cyan)]">
-              View on GitHub <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
-          </div>
-          <ContributionGraph />
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function ContributionGraph() {
-  // pseudo-random but deterministic intensity grid
-  const cols = 26;
-  const rows = 7;
-  return (
-    <div className="mt-6 flex gap-[3px] overflow-hidden">
-      {Array.from({ length: cols }).map((_, c) => (
-        <div key={c} className="flex flex-col gap-[3px]">
-          {Array.from({ length: rows }).map((_, r) => {
-            const v = Math.abs(Math.sin((c + 1) * (r + 1) * 1.7)) ;
-            const level = v < 0.2 ? 0 : v < 0.45 ? 1 : v < 0.7 ? 2 : v < 0.9 ? 3 : 4;
-            const opacities = [0.04, 0.18, 0.35, 0.6, 0.9];
-            return (
-              <div
-                key={r}
-                className="h-3 w-3 rounded-[3px]"
-                style={{
-                  background: `oklch(0.62 0.08 145 / ${opacities[level]})`,
-                }}
-              />
-            );
-          })}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 /* ──────────────────────────────────────────────────────────── EXPERIENCE */
 const experience = [
   {
-    role: "Lead Engineer (Self-led)",
-    org: "JK Hospital Management System",
-    period: "2026 — Present",
+    role: "Independent Full Stack Developer",
+    org: "Self-directed projects",
+    period: "2025 — Present",
     bullets: [
-      "Designed multi-role architecture spanning 5 dashboards (patient, doctor, receptionist, pharmacist, admin).",
-      "Implemented JWT-based RBAC, Razorpay payment flows, and real-time token queue management.",
-      "Modeled PostgreSQL schemas via Supabase; deployed services on Vercel + Render with Docker.",
+      "Designed, built, and deployed full-stack platforms end-to-end — JK Hospital (appointments, token queues, payments) and Campus Connect (live canteen menus).",
+      "Owned everything: schema design, REST APIs, authentication, payments, deployment, and UI.",
     ],
   },
   {
-    role: "Full Stack Developer",
-    org: "Amrita Nexus Campus Platform",
-    period: "2026",
+    role: "AI Systems Development",
+    org: "Scout · J.A.R.V.I.S.",
+    period: "Ongoing",
     bullets: [
-      "Built unified event and registration portal with React, Express, and PostgreSQL.",
-      "Designed QR-based venue access and an admin analytics dashboard.",
+      "Building local-first macOS AI assistants with wake word, streaming voice, screen vision, RAG, and persistent memory.",
+      "Multi-agent orchestration with permission-gated tools — on NVIDIA NIM and Ollama.",
     ],
   },
   {
-    role: "Frontend Engineer",
-    org: "React UI Systems & Component Architecture",
-    period: "2026",
+    role: "Freelance / Client Work",
+    org: "Simbells Wedding & Events · Hearth & Bloom Designs",
+    period: "Delivered",
     bullets: [
-      "Built responsive interfaces with React, Tailwind CSS, and Framer Motion.",
-      "Established reusable component primitives and design tokens.",
+      "Designed and delivered production websites for real clients, from concept to deployment.",
     ],
-  },
-];
-
-const testimonials = [
-  {
-    quote: "Jahajeevan ships fast without cutting corners — code quality, UX, and infra all considered.",
-    name: "Tech Mentor",
-    role: "Senior Software Engineer",
-  },
-  {
-    quote: "Rare combination of strong fundamentals and product taste. Reliable engineer to build with.",
-    name: "Project Collaborator",
-    role: "Full Stack Engineer",
   },
 ];
 
 function Experience() {
   return (
-    <section id="experience" className="relative py-32">
+    <section id="experience" className="relative scroll-mt-24 py-32">
       <div className="mx-auto max-w-6xl px-5">
         <SectionTitle
           eyebrow="Experience"
           title="Hands-on engineering."
-          description="Self-led projects treated with production rigor — real users, real constraints, real deployments."
+          description="Independent development and client work — treated with production rigor, no inflated titles."
         />
 
         <div className="grid gap-6 lg:grid-cols-3">
           {experience.map((e, i) => (
             <motion.div
-              key={e.org}
+              key={e.role}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1126,38 +913,12 @@ function Experience() {
               <ul className="mt-4 space-y-2">
                 {e.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <GitBranch className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-accent-violet)]" />
+                    <ChevronRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-accent-violet)]" />
                     {b}
                   </li>
                 ))}
               </ul>
             </motion.div>
-          ))}
-        </div>
-
-        {/* Testimonials */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          {testimonials.map((t, i) => (
-            <motion.figure
-              key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="glass-strong relative overflow-hidden rounded-2xl p-7"
-            >
-              <Quote className="absolute right-5 top-5 h-8 w-8 text-white/5" />
-              <blockquote className="text-base leading-relaxed text-foreground/85">"{t.quote}"</blockquote>
-              <figcaption className="mt-5 flex items-center gap-3 border-t border-white/5 pt-4">
-                <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--color-accent-cyan)] to-[var(--color-accent-violet)] text-xs font-semibold text-background">
-                  {t.name.split(" ").map((n) => n[0]).join("")}
-                </div>
-                <div>
-                  <div className="text-sm font-medium">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
-                </div>
-              </figcaption>
-            </motion.figure>
           ))}
         </div>
       </div>
@@ -1166,56 +927,9 @@ function Experience() {
 }
 
 /* ──────────────────────────────────────────────────────────── CONTACT */
-const workflow = [
-  { step: "01", title: "Problem", body: "Frame the real user need and constraints before writing a single line." },
-  { step: "02", title: "Design", body: "Wireframe flows, typographic hierarchy, and component primitives." },
-  { step: "03", title: "Architecture", body: "Data model, API surface, auth boundaries, and deployment topology." },
-  { step: "04", title: "Development", body: "TypeScript-first, small focused PRs, reusable hooks and primitives." },
-  { step: "05", title: "Testing", body: "Type safety, edge-case coverage, and real-device QA before shipping." },
-  { step: "06", title: "Deployment", body: "Containerized services, automated builds, observability from day one." },
-];
-
-function Workflow() {
-  return (
-    <section className="relative py-32">
-      <div className="mx-auto max-w-6xl px-5">
-        <SectionTitle
-          eyebrow="Process"
-          title="How I build products."
-          description="A disciplined loop from problem to production — designed to ship reliable software, not demos."
-        />
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {workflow.map((w) => (
-            <motion.div
-              key={w.step}
-              variants={fadeUp}
-              whileHover={{ y: -4 }}
-              className="group relative overflow-hidden rounded-2xl glass-strong p-6"
-            >
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs text-muted-foreground">{w.step}</span>
-                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
-              </div>
-              <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">{w.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.body}</p>
-              <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 function Contact() {
   return (
-    <section id="contact" className="relative py-32">
+    <section id="contact" className="relative scroll-mt-24 py-32">
       <div className="mx-auto max-w-6xl px-5">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1321,6 +1035,7 @@ function Footer() {
         <div className="flex items-center gap-3">
           <SocialIcon href={GITHUB} label="GitHub"><Github className="h-4 w-4" /></SocialIcon>
           <SocialIcon href={LINKEDIN} label="LinkedIn"><Linkedin className="h-4 w-4" /></SocialIcon>
+          <SocialIcon href={WHATSAPP_URL} label="WhatsApp"><MessageCircle className="h-4 w-4" /></SocialIcon>
           <SocialIcon href={`mailto:${EMAIL}`} label="Email"><Mail className="h-4 w-4" /></SocialIcon>
         </div>
         <div className="font-mono text-[11px] text-muted-foreground">
@@ -1343,8 +1058,6 @@ export function Portfolio() {
         <About />
         <Skills />
         <Projects />
-        <Achievements />
-        <Workflow />
         <Experience />
         <Contact />
       </main>
