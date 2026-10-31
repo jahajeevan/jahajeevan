@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Github,
   Linkedin,
@@ -16,7 +16,6 @@ import {
   GraduationCap,
   ChevronRight,
   MessageCircle,
-  BadgeCheck,
 } from "lucide-react";
 import { HeroScene } from "./HeroScene";
 import { IntroLoader } from "./IntroLoader";
